@@ -264,7 +264,7 @@ function init(event) {
 	createStarfield();
 
   //add the listener
-	// document.addEventListener('mousemove', handleMouseMove, false);
+	document.addEventListener('mousemove', handleMouseMove, false);
 
   renderer.render(scene, camera);
 

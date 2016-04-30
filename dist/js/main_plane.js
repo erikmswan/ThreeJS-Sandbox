@@ -45,7 +45,7 @@ function createScene() {
 
   // MAKE CAMERA LOOKY LOOK
   camera.position.x = 0;
-	camera.position.z = 200;
+	camera.position.z = 100;
 	camera.position.y = 100;
 
   // RENDER THAT SHIT!
@@ -362,8 +362,8 @@ function loop(){
 	airplane.propeller.rotation.x += 0.3;
 	sea.mesh.rotation.z += 0.005;
 	sky.mesh.rotation.z += 0.01;
-  DEATHBOX.mesh.rotation.y += 0.01;
-  DEATHBOX.mesh.rotation.x += 0.01;
+  // DEATHBOX.mesh.rotation.y += 0.01;
+  // DEATHBOX.mesh.rotation.x += 0.01;
 
   // update the plane on each frame
 	updatePlane();
@@ -446,7 +446,7 @@ function init(event) {
 	createPlane();
 	createSea();
 	createSky();
-  createDeathBox();
+  // createDeathBox();
 
   //add the listener
 	document.addEventListener('mousemove', handleMouseMove, false);

@@ -184,7 +184,8 @@ Hal = function() {
 
 	// Create Hal's base
 	var geomBase = new THREE.BoxGeometry(20,40,3,1,1,1);
-	var matBase = new THREE.MeshPhongMaterial({color:Colors.medGray, shading:THREE.FlatShading});
+	var baseTexture = new THREE.TextureLoader().load("textures/hal-body.jpg");
+	var matBase = new THREE.MeshPhongMaterial({map: baseTexture, shading:THREE.FlatShading});
 	var base = new THREE.Mesh(geomBase, matBase);
 	this.mesh.add(base);
 
@@ -192,7 +193,7 @@ Hal = function() {
 	var geomEyeLiner = new THREE.RingGeometry(7,8,30);
 	var matEyeLiner = new THREE.MeshPhongMaterial({color:Colors.lightGray, shading:THREE.FlatShading});
 	var eyeLiner = new THREE.Mesh(geomEyeLiner, matEyeLiner);
-	eyeLiner.position.z = 3;
+	eyeLiner.position.z = 2;
 	this.mesh.add(eyeLiner);
 
 	// Create actual eye
@@ -200,7 +201,7 @@ Hal = function() {
 	var eyeTexture = new THREE.TextureLoader().load("textures/hal-eye.png");
 	var matEye = new THREE.MeshPhongMaterial({map: eyeTexture, shading:THREE.FlatShading});
 	var eye = new THREE.Mesh(geomEye, matEye);
-	eye.position.z = 3;
+	eye.position.z = 2;
 	this.mesh.add(eye);
 
 	// Create the text
@@ -228,6 +229,7 @@ function createHal() {
 	hal = new Hal();
 	hal.mesh.position.x = 50;
 	hal.mesh.position.y = 100;
+	hal.mesh.position.z = 20;
 	scene.add(hal.mesh);
 }
 
@@ -237,7 +239,7 @@ function createHal() {
 function updateMonolith() {
 	monolith.mesh.rotation.y += 0.01;
   monolith.mesh.rotation.x += 0.01;
-	if (monolith.mesh.position.z <= 99 ) {
+	if (monolith.mesh.position.z <= 0 ) {
 		monolith.mesh.position.z += 5;
 	}
 }

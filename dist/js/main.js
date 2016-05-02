@@ -183,7 +183,7 @@ Hal = function() {
 	var that = this;
 
 	// Create Hal's base
-	var geomBase = new THREE.BoxGeometry(20,40,1,1,1,1);
+	var geomBase = new THREE.BoxGeometry(20,40,3,1,1,1);
 	var matBase = new THREE.MeshPhongMaterial({color:Colors.medGray, shading:THREE.FlatShading});
 	var base = new THREE.Mesh(geomBase, matBase);
 	this.mesh.add(base);
@@ -192,7 +192,7 @@ Hal = function() {
 	var geomEyeLiner = new THREE.RingGeometry(7,8,30);
 	var matEyeLiner = new THREE.MeshPhongMaterial({color:Colors.lightGray, shading:THREE.FlatShading});
 	var eyeLiner = new THREE.Mesh(geomEyeLiner, matEyeLiner);
-	eyeLiner.position.z = 1;
+	eyeLiner.position.z = 3;
 	this.mesh.add(eyeLiner);
 
 	// Create actual eye
@@ -200,7 +200,7 @@ Hal = function() {
 	var eyeTexture = new THREE.TextureLoader().load("textures/hal-eye.png");
 	var matEye = new THREE.MeshPhongMaterial({map: eyeTexture, shading:THREE.FlatShading});
 	var eye = new THREE.Mesh(geomEye, matEye);
-	eye.position.z = 1;
+	eye.position.z = 3;
 	this.mesh.add(eye);
 
 	// Create the text
@@ -263,17 +263,12 @@ var mousePos={x:0, y:0};
 
 function updateHal(){
 
-	// let's move the airplane between -100 and 100 on the horizontal axis,
-	// and between 25 and 175 on the vertical axis,
-	// depending on the mouse position which ranges between -1 and 1 on both axes;
-	// to achieve that we use a normalize function (see below)
-
 	var targetX = normalize(mousePos.x, -1, 1, -100, 100);
 	var targetY = normalize(mousePos.y, -1, 1, 25, 175);
 
-	// update the airplane's position
 	hal.mesh.position.y = targetY;
 	hal.mesh.position.x = targetX;
+	hal.mesh.rotation.y += 0.05;
 }
 
 function normalize(v,vmin,vmax,tmin, tmax){
@@ -301,7 +296,7 @@ function updateText() {
 		toggle = false;
 		timer = 0;
 		clearInterval(interval);
-		
+
 		interval = setInterval(function(){
 
 			// appear & translate upwards

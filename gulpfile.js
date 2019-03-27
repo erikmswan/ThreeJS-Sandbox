@@ -19,9 +19,9 @@ var gulp = require('gulp'),
 
 var src = './src/',
     dist = './dist/',
-    css = 'css/',
-    js = 'js/',
-    img = 'img/',
+    css = 'public/css/',
+    js = 'public/js/',
+    img = 'public/img/',
     paths = {
       src: {
         base: src,

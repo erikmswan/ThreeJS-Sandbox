@@ -1,0 +1,23 @@
+{
+  "name": "threejs-sandbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikmswan/ThreeJS-Sandbox.git"
+  },
+  "author": "Erik Swan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erikmswan/ThreeJS-Sandbox/issues"
+  },
+  "homepage": "https://github.com/erikmswan/ThreeJS-Sandbox#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
